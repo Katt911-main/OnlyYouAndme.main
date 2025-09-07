@@ -1,116 +1,71 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hello Kitty GitHub - Login</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-    }
-
-    /* === BACKGROUND COFFEE SUSU === */
-    body {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(135deg, #d7ccc8, #f5f5dc, #e6d5b8);
-      background-size: 300% 300%;
-      animation: gradientMove 12s ease infinite;
-    }
-
-    @keyframes gradientMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    /* === LOGIN CARD === */
-    .login-container {
-      background-color: white;
-      border-radius: 20px;
-      padding: 30px;
-      width: 350px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-      text-align: center;
-      border: 5px solid #d7ccc8;
-    }
-
-    .hello-kitty-logo {
-      width: 120px;
-      margin-bottom: 20px;
-    }
-
-    h1 {
-      color: #8d6e63;
-      margin-bottom: 20px;
-      font-size: 24px;
-    }
-
-    .form-group {
-      margin-bottom: 15px;
-      text-align: left;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 5px;
-      color: #8d6e63;
-      font-weight: bold;
-    }
-
-    input {
-      width: 100%;
-      padding: 10px;
-      border: 2px solid #d7ccc8;
-      border-radius: 10px;
-      font-size: 14px;
-      outline: none;
-    }
-
-    input:focus {
-      border-color: #a1887f;
-    }
-
-    button {
-      background-color: #a1887f;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-      margin-top: 10px;
-      width: 100%;
-      transition: background-color 0.3s;
-    }
-
-    button:hover {
-      background-color: #8d6e63;
-    }
-
-    .error-message {
-      color: red;
-      margin-top: 10px;
-      display: none;
-    }
-
-    .hello-kitty-footer {
-      margin-top: 20px;
-      font-size: 12px;
-      color: #8d6e63;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RirakumaLove - Login</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body>
-  <div class="login-container">
-    <img src="https://i.imgur.com/5v6yQ9b.png" alt="Hello Kitty" class="hello-kitty-logo">
-    <h1>Hello Kitty GitHub</h1>
+<body class="login-page">
+    <div class="clouds">
+        <div class="cloud cloud-1"></div>
+        <div class="cloud cloud-2"></div>
+        <div class="cloud cloud-3"></div>
+    </div>
+    
+    <div class="container">
+        <div class="login-container">
+            <div class="rilakkuma-hero">
+                <img src="https://i.imgur.com/7p7X1dU.png" alt="Rilakkuma" class="rilakkuma-img">
+                <h1 class="title">Rirakuma LoveHub</h1>
+                <p class="subtitle">Masuk ke dunia kawaii yang nyaman</p>
+            </div>
+            
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <div class="input-container">
+                        <i class="fas fa-user input-icon"></i>
+                        <input type="text" id="username" placeholder="Masukkan username" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <div class="input-container">
+                        <i class="fas fa-lock input-icon"></i>
+                        <input type="password" id="password" placeholder="Masukkan password" required>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn-login">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+                
+                <div class="error-message" id="error-message">
+                    Username atau password salah! Coba lagi.
+                </div>
+            </form>
+            
+            <div class="rilakkuma-footer">
+                <p>© 2023 Rilakkuma GitHub. Made with <i class="fas fa-heart"></i> for kawaii lovers</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="characters">
+        <div class="character character-1">
+            <img src="https://i.imgur.com/6QeJ1oC.png" alt="Korilakkuma">
+        </div>
+        <div class="character character-2">
+            <img src="https://i.imgur.com/8JZkQ4t.png" alt="Kiiroitori">
+        </div>
+    </div>
+    
+    <script src="js/login.js"></script>
+</body>
+</html>    <h1>Hello Kitty GitHub</h1>
     <form id="loginForm">
       <div class="form-group">
         <label for="username">Username:</label>
