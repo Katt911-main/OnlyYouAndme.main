@@ -1,116 +1,446 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello Kitty GitHub - Dashboard</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-        }
-        
-        body {
-            background-color: #ffc0cb;
-            background-image: url('https://i.imgur.com/8jB3w0s.png');
-            background-repeat: repeat;
-            min-height: 100vh;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: white;
-            border-radius: 20px;
-            padding: 15px 30px;
-            margin-bottom: 20px;
-            border: 5px solid #ff9eb5;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo img {
-            width: 50px;
-            margin-right: 15px;
-        }
-        
-        .logo h1 {
-            color: #ff66a3;
-            font-size: 24px;
-        }
-        
-        .user-info {
-            display: flex;
-            align-items: center;
-        }
-        
-        .user-info span {
-            color: #ff66a3;
-            margin-right: 15px;
-            font-weight: bold;
-        }
-        
-        .logout-btn {
-            background-color: #ff66a3;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            padding: 8px 15px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        .logout-btn:hover {
-            background-color: #ff4d94;
-        }
-        
-        .content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-        
-        .card {
-            background-color: white;
-            border-radius: 20px;
-            padding: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            border: 5px solid #ff9eb5;
-        }
-        
-        .card h2 {
-            color: #ff66a3;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .card h2 i {
-            margin-right: 10px;
-        }
-        
-        .spotify-player {
-            width: 100%;
-            height: 152px;
-            border-radius: 10px;
-        }
-        
-        .form-group {
-            margin-bottom: 15px;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello Kitty GitHub - Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+
+    /* Background coffee susu */
+    body {
+      background-color: #d2b48c; /* warna coffee susu */
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: white;
+      border-radius: 20px;
+      padding: 15px 30px;
+      margin-bottom: 20px;
+      border: 5px solid #ff9eb5;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      width: 50px;
+      margin-right: 15px;
+    }
+
+    .logo h1 {
+      color: #ff66a3;
+      font-size: 24px;
+    }
+
+    .user-info {
+      display: flex;
+      align-items: center;
+    }
+
+    .user-info span {
+      color: #ff66a3;
+      margin-right: 15px;
+      font-weight: bold;
+    }
+
+    .logout-btn {
+      background-color: #ff66a3;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 8px 15px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .logout-btn:hover {
+      background-color: #ff4d94;
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      border: 5px solid #ff9eb5;
+    }
+
+    .card h2 {
+      color: #ff66a3;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+    }
+
+    .card h2 i {
+      margin-right: 10px;
+    }
+
+    .spotify-player {
+      width: 100%;
+      height: 152px;
+      border-radius: 10px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: #ff66a3;
+      font-weight: bold;
+    }
+
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #ff9eb5;
+      border-radius: 10px;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+      border-color: #ff66a3;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .btn {
+      background-color: #ff66a3;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #ff4d94;
+    }
+
+    .memories-container {
+      margin-top: 20px;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    .memory-item {
+      background-color: #ffe0ec;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 10px;
+    }
+
+    .memory-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .memory-year {
+      font-weight: bold;
+      color: #ff66a3;
+    }
+
+    .memory-date {
+      color: #666;
+      font-size: 12px;
+    }
+
+    .memory-content {
+      margin-bottom: 10px;
+    }
+
+    .memory-image {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    .notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #4CAF50;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      display: none;
+      z-index: 1000;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      color: #ff66a3;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .content {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .user-info {
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <img src="https://i.imgur.com/5v6yQ9b.png" alt="Hello Kitty">
+        <h1>Hello Kitty GitHub</h1>
+      </div>
+      <div class="user-info">
+        <span id="welcome-user">Halo, vieqirara!</span>
+        <button class="logout-btn" id="logout-btn">Logout</button>
+      </div>
+    </header>
+
+    <div class="content">
+      <div class="card">
+        <h2><i class="fab fa-spotify"></i> Spotify Player</h2>
+        <div class="form-group">
+          <label for="spotify-link">Spotify Link:</label>
+          <input type="text" id="spotify-link" placeholder="Masukkan link Spotify">
+        </div>
+        <button class="btn" id="load-spotify">Load Player</button>
+        <div style="margin-top: 15px;">
+          <iframe id="spotify-iframe" class="spotify-player" src="" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2><i class="fas fa-comment"></i> Pesan & Kesan</h2>
+        <div class="form-group">
+          <label for="message">Pesan:</label>
+          <textarea id="message" placeholder="Tulis pesan Anda di sini..."></textarea>
+        </div>
+        <button class="btn" id="save-message">Simpan Pesan</button>
+        <div id="saved-message" style="margin-top: 15px; padding: 10px; background-color: #ffe0ec; border-radius: 10px; display: none;"></div>
+      </div>
+
+      <div class="card">
+        <h2><i class="fas fa-camera"></i> Upload Foto</h2>
+        <div class="form-group">
+          <label for="photo-upload">Pilih Foto:</label>
+          <input type="file" id="photo-upload" accept="image/*">
+        </div>
+        <button class="btn" id="upload-photo">Upload</button>
+        <div id="photo-preview" style="margin-top: 15px; text-align: center;"></div>
+      </div>
+
+      <div class="card">
+        <h2><i class="fas fa-heart"></i> Momen Kenangan</h2>
+        <div class="form-group">
+          <label for="memory-year">Tahun:</label>
+          <select id="memory-year">
+            <option value="2023">2023</option>
+            <option value="2022">2022</option>
+            <option value="2021">2021</option>
+            <option value="2020">2020</option>
+            <option value="2019">2019</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="memory-text">Kenangan:</label>
+          <textarea id="memory-text" placeholder="Tulis kenangan Anda..."></textarea>
+        </div>
+        <button class="btn" id="save-memory">Simpan Kenangan</button>
+        <div class="memories-container" id="memories-container"></div>
+      </div>
+    </div>
+
+    <footer>
+      © 2023 Hello Kitty GitHub. Made with ❤️
+    </footer>
+  </div>
+
+  <div class="notification" id="notification"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const isLoggedIn = localStorage.getItem('isLoggedIn');
+      if (isLoggedIn !== 'true') {
+        window.location.href = 'index.html';
+        return;
+      }
+      const username = localStorage.getItem('username');
+      document.getElementById('welcome-user').textContent = `Halo, ${username}!`;
+      loadMemories();
+      loadSavedMessage();
+      loadUploadedPhoto();
+    });
+
+    document.getElementById('logout-btn').addEventListener('click', function() {
+      localStorage.removeItem('isLoggedIn');
+      localStorage.removeItem('username');
+      window.location.href = 'index.html';
+    });
+
+    document.getElementById('load-spotify').addEventListener('click', function() {
+      const spotifyLink = document.getElementById('spotify-link').value;
+      let spotifyEmbedUrl = '';
+      if (spotifyLink.includes('spotify.com/track/')) {
+        const trackId = spotifyLink.split('spotify.com/track/')[1].split('?')[0];
+        spotifyEmbedUrl = `https://open.spotify.com/embed/track/${trackId}?utm_source=generator&theme=0`;
+      } else if (spotifyLink.includes('spotify.com/playlist/')) {
+        const playlistId = spotifyLink.split('spotify.com/playlist/')[1].split('?')[0];
+        spotifyEmbedUrl = `https://open.spotify.com/embed/playlist/${playlistId}?utm_source=generator&theme=0`;
+      } else if (spotifyLink.includes('spotify.com/album/')) {
+        const albumId = spotifyLink.split('spotify.com/album/')[1].split('?')[0];
+        spotifyEmbedUrl = `https://open.spotify.com/embed/album/${albumId}?utm_source=generator&theme=0`;
+      } else {
+        showNotification('Link Spotify tidak valid!', 'error');
+        return;
+      }
+      document.getElementById('spotify-iframe').src = spotifyEmbedUrl;
+      showNotification('Player Spotify berhasil dimuat!');
+    });
+
+    document.getElementById('save-message').addEventListener('click', function() {
+      const message = document.getElementById('message').value;
+      if (!message.trim()) {
+        showNotification('Pesan tidak boleh kosong!', 'error');
+        return;
+      }
+      localStorage.setItem('savedMessage', message);
+      document.getElementById('saved-message').textContent = message;
+      document.getElementById('saved-message').style.display = 'block';
+      showNotification('Pesan berhasil disimpan!');
+    });
+
+    function loadSavedMessage() {
+      const savedMessage = localStorage.getItem('savedMessage');
+      if (savedMessage) {
+        document.getElementById('message').value = savedMessage;
+        document.getElementById('saved-message').textContent = savedMessage;
+        document.getElementById('saved-message').style.display = 'block';
+      }
+    }
+
+    document.getElementById('upload-photo').addEventListener('click', function() {
+      const fileInput = document.getElementById('photo-upload');
+      if (!fileInput.files || !fileInput.files[0]) {
+        showNotification('Pilih foto terlebih dahulu!', 'error');
+        return;
+      }
+      const file = fileInput.files[0];
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const photoPreview = document.getElementById('photo-preview');
+        photoPreview.innerHTML = `<img src="${e.target.result}" alt="Uploaded Photo" style="max-width: 100%; border-radius: 10px;">`;
+        localStorage.setItem('uploadedPhoto', e.target.result);
+        showNotification('Foto berhasil diupload!');
+      };
+      reader.readAsDataURL(file);
+    });
+
+    function loadUploadedPhoto() {
+      const uploadedPhoto = localStorage.getItem('uploadedPhoto');
+      if (uploadedPhoto) {
+        const photoPreview = document.getElementById('photo-preview');
+        photoPreview.innerHTML = `<img src="${uploadedPhoto}" alt="Uploaded Photo" style="max-width: 100%; border-radius: 10px;">`;
+      }
+    }
+
+    document.getElementById('save-memory').addEventListener('click', function() {
+      const year = document.getElementById('memory-year').value;
+      const memoryText = document.getElementById('memory-text').value;
+      if (!memoryText.trim()) {
+        showNotification('Kenangan tidak boleh kosong!', 'error');
+        return;
+      }
+      let memories = JSON.parse(localStorage.getItem('memories')) || [];
+      memories.push({
+        year: year,
+        text: memoryText,
+        date: new Date().toLocaleDateString('id-ID')
+      });
+      localStorage.setItem('memories', JSON.stringify(memories));
+      document.getElementById('memory-text').value = '';
+      loadMemories();
+      showNotification('Kenangan berhasil disimpan!');
+    });
+
+    function loadMemories() {
+      const memories = JSON.parse(localStorage.getItem('memories')) || [];
+      const container = document.getElementById('memories-container');
+      container.innerHTML = '';
+      if (memories.length === 0) {
+        container.innerHTML = '<p style="text-align: center; color: #ff66a3;">Belum ada kenangan yang disimpan.</p>';
+        return;
+      }
+      memories.sort((a, b) => b.year - a.year);
+      memories.forEach(memory => {
+        const memoryElement = document.createElement('div');
+        memoryElement.className = 'memory-item';
+        memoryElement.innerHTML = `
+          <div class="memory-header">
+            <span class="memory-year">${memory.year}</span>
+            <span class="memory-date">${memory.date}</span>
+          </div>
+          <div class="memory-content">${memory.text}</div>
+        `;
+        container.appendChild(memoryElement);
+      });
+    }
+
+    function showNotification(message, type = 'success') {
+      const notification = document.getElementById('notification');
+      notification.textContent = message;
+      notification.style.backgroundColor = type === 'error' ? '#f44336' : '#4CAF50';
+      notification.style.display = 'block';
+      setTimeout(() => {
+        notification.style.display = 'none';
+      }, 3000);
+    }
+  </script>
+</body>
+</html>            margin-bottom: 15px;
         }
         
         .form-group label {
